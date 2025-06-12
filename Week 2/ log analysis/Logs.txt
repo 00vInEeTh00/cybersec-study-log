@@ -1,47 +1,47 @@
-08:15 30-05-2025 [INFO] Application started successfully.
+08:15 30-05-2025 [INFO] Application started successfully. IP: 192.168.1.10
 08:17 30-05-2025 [WARNING] Configuration file missing. Using defaults.
-08:19 30-05-2025 [ERROR] Unable to connect to database.
-08:25 30-05-2025 [INFO] Checking for updates...
-08:30 30-05-2025 [ERROR] Update check failed due to network error.
-08:35 30-05-2025 [INFO] User logged in.
-08:40 30-05-2025 [INFO] User session started.
-08:45 30-05-2025 [WARNING] Disk space running low.
+08:19 30-05-2025 [ERROR] Unable to connect to database. Contact: admin@server.com
+08:25 30-05-2025 [INFO] Checking for updates... IP: 172.16.0.5
+08:30 30-05-2025 [ERROR] Update check failed due to network error. IP: 10.0.0.8
+08:35 30-05-2025 [INFO] User logged in. Email: john.doe@example.com
+08:40 30-05-2025 [INFO] User session started. IP: 192.168.1.12
+08:45 30-05-2025 [WARNING] Disk space running low. Email: alerts@system.com
 08:50 30-05-2025 [INFO] Auto-save completed.
-08:55 30-05-2025 [INFO] Backup created successfully.
-09:00 30-05-2025 [ERROR] Invalid password entered multiple times.
+08:55 30-05-2025 [INFO] Backup created successfully. Sent to: backup@safe-mail.com
+09:00 30-05-2025 [ERROR] Invalid password entered multiple times. IP: 203.0.113.17
 09:05 30-05-2025 [INFO] Settings loaded.
-09:10 30-05-2025 [INFO] Cache cleared.
-09:15 30-05-2025 [WARNING] High memory usage detected.
+09:10 30-05-2025 [INFO] Cache cleared. IP: 192.168.0.2
+09:15 30-05-2025 [WARNING] High memory usage detected. Alert sent to: sysadmin@host.net
 09:20 30-05-2025 [INFO] Service restarted.
-09:25 30-05-2025 [INFO] Connection established.
+09:25 30-05-2025 [INFO] Connection established. IP: 10.1.1.1
 09:30 30-05-2025 [INFO] Scheduled task executed.
-09:35 30-05-2025 [WARNING] CPU temperature high.
+09:35 30-05-2025 [WARNING] CPU temperature high. IP: 172.20.10.15
 09:40 30-05-2025 [INFO] Log cleanup completed.
-09:45 30-05-2025 [INFO] New user registered.
-09:50 30-05-2025 [INFO] Email notifications sent.
-09:55 30-05-2025 [WARNING] Network latency is high.
+09:45 30-05-2025 [INFO] New user registered. Email: newuser@domain.com
+09:50 30-05-2025 [INFO] Email notifications sent to jane.doe123@mail.org
+09:55 30-05-2025 [WARNING] Network latency is high. IP: 8.8.8.8
 10:00 30-05-2025 [INFO] Data synchronization started.
 10:05 30-05-2025 [INFO] Data synchronization completed.
-10:10 30-05-2025 [INFO] Auto-save completed.
+10:10 30-05-2025 [INFO] Auto-save completed. Email: autosave@cloud.io
 10:15 30-05-2025 [WARNING] Deprecated API usage detected.
-10:20 30-05-2025 [ERROR] Failed to save settings.
-10:25 30-05-2025 [INFO] User logged out.
+10:20 30-05-2025 [ERROR] Failed to save settings. IP: 198.51.100.42
+10:25 30-05-2025 [INFO] User logged out. Email: user.logout@webmail.com
 10:30 30-05-2025 [INFO] System health check passed.
 10:35 30-05-2025 [INFO] Backup created successfully.
 10:40 30-05-2025 [WARNING] Low battery warning.
-10:45 30-05-2025 [INFO] Service restarted.
-10:50 30-05-2025 [INFO] Security scan completed.
-10:55 30-05-2025 [INFO] Password changed successfully.
+10:45 30-05-2025 [INFO] Service restarted. IP: 10.0.0.11
+10:50 30-05-2025 [INFO] Security scan completed. Result sent to: scan.results@cybermail.com
+10:55 30-05-2025 [INFO] Password changed successfully. IP: 192.168.100.5
 11:00 30-05-2025 [INFO] Application updated.
 11:05 30-05-2025 [WARNING] Slow response time detected.
-11:10 30-05-2025 [INFO] User profile updated.
-11:15 30-05-2025 [INFO] New device connected.
+11:10 30-05-2025 [INFO] User profile updated. Email: profile.update@site.com
+11:15 30-05-2025 [INFO] New device connected. IP: 192.0.2.99
 11:20 30-05-2025 [INFO] Scheduled report generated.
 11:25 30-05-2025 [INFO] Auto-save completed.
-11:30 30-05-2025 [WARNING] Potential security risk detected.
+11:30 30-05-2025 [WARNING] Potential security risk detected. Email: threat@security.org
 11:35 30-05-2025 [INFO] Connection established.
-11:40 30-05-2025 [INFO] System rebooted.
-11:45 30-05-2025 [INFO] User logged in.
+11:40 30-05-2025 [INFO] System rebooted. IP: 10.10.1.4
+11:45 30-05-2025 [INFO] User logged in. Email: welcome.back@domain.net
 11:50 30-05-2025 [INFO] Service stopped.
 11:55 30-05-2025 [INFO] Service started.
 12:00 30-05-2025 [INFO] System shutdown initiated.
