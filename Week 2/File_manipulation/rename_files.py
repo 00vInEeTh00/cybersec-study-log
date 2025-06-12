@@ -1,3 +1,5 @@
+# Rename only images in a folder 
+
 import os
 
 path = "files" #file stored folder
