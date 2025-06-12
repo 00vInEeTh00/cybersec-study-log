@@ -1,4 +1,4 @@
-# Extract error from log
+# Extract error from log.
 
 substr="ERROR"
 with open('Logs.txt', 'rt') as myfile:
