@@ -1,4 +1,4 @@
-# Rename only images in a folder
+# Rename only images in a folder ..
 
 import os
 
