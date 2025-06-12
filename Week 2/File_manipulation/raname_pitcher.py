@@ -2,7 +2,7 @@
 
 import os
 
-path = "C:/Users/vinee/Desktop/files/bulk_rename/files"
+path = "files"
 files = os.listdir(path)
 
 image_files =[]
