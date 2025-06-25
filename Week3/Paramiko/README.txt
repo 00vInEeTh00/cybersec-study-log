@@ -11,8 +11,8 @@ This script lets you:
 
 ## 🧠 What This Script Does
 
-1. Connects to your phone's Termux using **SSH**
-2. Sends a Python file using **SFTP**
+1. Connects to your phone's Termux using **SSH** - (Secure Shell)
+2. Sends a Python file using **SFTP**  -  (Secure File Transfer Protocol)
 3. **Replaces the file** if one already exists at the same path ⚠️
 4. Reads the file using `cat` command
 5. Prints the file content on your PC terminal
