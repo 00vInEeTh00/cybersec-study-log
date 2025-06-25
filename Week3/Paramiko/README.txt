@@ -27,3 +27,5 @@ This script lets you:
 - `paramiko` library
   ```bash
   pip install paramiko
+  create a python file current directory name sample.py
+  replace password ,username,ip,port if needed
