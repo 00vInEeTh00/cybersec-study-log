@@ -1,7 +1,7 @@
 PYTHON FLASK PROJECT
 
 
-E
+
 
      1.  ## 📌 What is App Routing?
 
