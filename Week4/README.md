@@ -39,12 +39,12 @@ This project is a **beginner-friendly web app** built with Flask. It includes:
 ###  1. Clone this Repo
 https://github.com/00vInEeTh00/cybersec-study-log/tree/master/Week4
 
-2. Create a Virtual Environment
+### 2. Create a Virtual Environment
 
-3. Install Dependencies
+### 3. Install Dependencies
 pip install -r requirements.txt
 
-4.Make sure to update:
+### 4.Make sure to update:
     Your email credentials
     Your weather API key from https://openweathermap.org
 
