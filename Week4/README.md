@@ -13,7 +13,6 @@ This project is a **beginner-friendly web app** built with Flask. It includes:
 -  Strong password validation
 -  Hashed password storage (bcrypt)
 -  Weather API integration on dashboard
--  Session timeout (auto logout)
 -  CSRF protection + HTTPS (local)
 -  Flash messages for user feedback
 
