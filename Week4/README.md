@@ -41,3 +41,6 @@ This project is a **beginner-friendly web app** built with Flask. It includes:
 ```bash
 git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
+
+2. Create a Virtual Environment
+Your weather API key from https://openweathermap.org
