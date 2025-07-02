@@ -55,9 +55,9 @@ echo "===== END OF REPORT ====="
 
 
 
-🛠️ Optional / Advanced Tools (But Very Useful)
+##🛠️ Optional / Advanced Tools (But Very Useful)
 
-These tools offer more detailed or interactive system monitoring:
+###These tools offer more detailed or interactive system monitoring:
 Tool	Description	Install (Ubuntu/Debian)
 htop	Interactive system monitor (better than top)	sudo apt install htop
 iotop	Real-time disk I/O per process	sudo apt install iotop
