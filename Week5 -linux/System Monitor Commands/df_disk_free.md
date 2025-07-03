@@ -109,6 +109,9 @@ Then investigate large folders like `/var`, `/tmp`, or `/home`.
 > `df` = Disk Full? = Danger Found! 🧨  
 > Use it daily like a security camera for your disk 👁️💽
 
+---
+
+
 
 
 
@@ -120,6 +123,13 @@ Then investigate large folders like `/var`, `/tmp`, or `/home`.
     It can’t tell you the file names
 
     For that, you need extra tools 👇
+
+
+
+
+
+
+---
 
 
 
