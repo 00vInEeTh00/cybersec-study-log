@@ -1,0 +1,53 @@
+2025-08-18 23:07:58 - System Health Check Started on eva-PC
+2025-08-18 23:07:58 - Starting Disk Usage Monitoring..
+2025-08-18 23:07:58 - Disk usage is normal: 19%
+2025-08-18 23:07:58 - Disk Usage Monitoring is Completed
+ 
+2025-08-18 23:07:58 - Starting CPU and Memory Monitoring
+2025-08-18 23:08:01 - CPU Usage: 1.4%
+2025-08-18 23:08:01 - Memory Usage: 3.2Gi/7.5Gi (0%)
+ 
+2025-08-18 23:08:01 - Top 5 Memory-Consuming Processes:
+    PID    PPID CMD                         %MEM %CPU
+   1038       1 /usr/sbin/clamd --foregroun 17.3 19.7
+   2271    2013 /usr/bin/gnome-shell         3.9 13.2
+   2497    2231 /opt/workfolio/workfolio     2.6  6.1
+   3180    2497 /opt/workfolio/workfolio --  2.1  2.8
+   3496    2013 /usr/bin/gnome-text-editor   2.0  3.7
+ 
+2025-08-18 23:08:01 - Starting System Updates Checking...
+2025-08-18 23:08:02 - Available updates: 0
+ 
+2025-08-18 23:08:02 - Starting Backup..
+tar: Removing leading `/' from member names
+tar: /home/eva/Desktop/flask_project: Cannot stat: No such file or directory
+tar: Exiting with failure status due to previous errors
+2025-08-18 23:08:02 - Backup failed!
+ 
+2025-08-18 23:08:02 - System Health Check Completed.
+2025-08-18 23:10:08 - System Health Check Started on eva-PC
+2025-08-18 23:10:08 - Starting Disk Usage Monitoring..
+2025-08-18 23:10:08 - Disk usage is normal: 19%
+2025-08-18 23:10:08 - Disk Usage Monitoring is Completed
+ 
+2025-08-18 23:10:08 - Starting CPU and Memory Monitoring
+2025-08-18 23:10:12 - CPU Usage: 1.2%
+2025-08-18 23:10:12 - Memory Usage: 3.3Gi/7.5Gi (0%)
+ 
+2025-08-18 23:10:12 - Top 5 Memory-Consuming Processes:
+    PID    PPID CMD                         %MEM %CPU
+   1038       1 /usr/sbin/clamd --foregroun 17.3 10.8
+   2271    2013 /usr/bin/gnome-shell         3.9 12.1
+   2497    2231 /opt/workfolio/workfolio     2.6  3.1
+   3180    2497 /opt/workfolio/workfolio --  2.1  1.4
+   3784    2013 /usr/bin/nautilus --gapplic  2.1  8.0
+ 
+2025-08-18 23:10:12 - Starting System Updates Checking...
+2025-08-18 23:10:12 - Available updates: 0
+ 
+2025-08-18 23:10:12 - Starting Backup..
+tar: Removing leading `/' from member names
+2025-08-18 23:10:15 - Backup successful: /home/eva/Desktop/backups/backup_20250818_231012.tar.gz
+16M	/home/eva/Desktop/backups/backup_20250818_231012.tar.gz
+ 
+2025-08-18 23:10:15 - System Health Check Completed.
