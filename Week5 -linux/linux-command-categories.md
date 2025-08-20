@@ -29,6 +29,9 @@ Used to monitor and control running processes.
 - `ps` → process status  
 - `top` → real-time process view  
 - `htop` → interactive process viewer  
+- **atop** → Monitors CPU, memory, disk, and network usage per process. Useful for performance troubleshooting.  
+- **glances** → All-in-one monitoring tool (CPU, memory, processes, disk, network, sensors). Also supports a web interface.  
+- **systemd-cgtop** → Shows resource usage (CPU, memory, I/O) by systemd control groups.  
 - `kill` → terminate process  
 - `jobs` → list background jobs  
 
