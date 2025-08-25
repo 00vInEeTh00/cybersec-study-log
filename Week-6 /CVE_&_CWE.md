@@ -133,3 +133,35 @@ These CWEs drive many CVEs, particularly in web applications and authentication 
 ## 7. Conclusion
 
 CVE and CWE are indispensable for cybersecurity. CVEs enable rapid identification and patching of specific vulnerabilities, while CWEs guide developers to prevent recurring weaknesses. High-profile cases like Log4Shell and Heartbleed demonstrate the devastating impacts of unaddressed flaws, including data breaches and system disruptions. In 2025, critical CVEs in tools like Cisco, Microsoft, and Chrome underscore the urgency of timely updates. The 2024 CWE Top 25 highlights persistent issues like XSS and authentication errors, guiding developers toward secure coding practices. By leveraging CVE for immediate fixes and CWE for long-term prevention, organizations can strengthen software security and stay ahead of evolving threats.
+
+
+
+# How to Find the Latest Threats  
+
+To stay updated on the newest vulnerabilities and exploits, check these trusted resources:
+
+## 1. Official CVE Database
+- 🌐 [https://cve.mitre.org](https://cve.mitre.org)  
+- Maintained by MITRE.  
+- Lists all CVE IDs (Common Vulnerabilities and Exposures).  
+
+## 2. National Vulnerability Database (NVD)
+- 🌐 [https://nvd.nist.gov/vuln](https://nvd.nist.gov/vuln)  
+- Managed by NIST (US government).  
+- Provides severity scores (CVSS), impact, and details for each CVE.  
+
+## 3. CISA Known Exploited Vulnerabilities Catalog
+- 🌐 [https://www.cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)  
+- Maintained by the US Cybersecurity and Infrastructure Security Agency (CISA).  
+- Focuses only on vulnerabilities that are actively being exploited.  
+
+## 4. Exploit Database
+- 🌐 [https://www.exploit-db.com](https://www.exploit-db.com)  
+- Managed by Offensive Security.  
+- Public exploits and proof-of-concept (PoC) codes.  
+
+## 5. Security News Sites
+- 🌐 [https://thehackernews.com](https://thehackernews.com)  
+- 🌐 [https://www.bleepingcomputer.com](https://www.bleepingcomputer.com)  
+- Cybersecurity news, latest breaches, malware reports, and zero-day threats.  
+
