@@ -1,3 +1,4 @@
+more: https://afsh4ck.gitbook.io/ethical-hacking-cheatsheet/recopilacion-de-informacion/google-hacking/google-dorks
 # Kali Linux OSINT Tools Overview
 
 This is a simple overview of Kali Linux OSINT tools and their uses. Each tool has a short description to help beginners understand its purpose.
