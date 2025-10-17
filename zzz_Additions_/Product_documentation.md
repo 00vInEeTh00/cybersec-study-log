@@ -1,7 +1,7 @@
-https://nodejs.org/docs/latest/api/
+Node: https://nodejs.org/docs/latest/api/
 
-https://www.php.net/manual/en/index.php
+php: https://www.php.net/manual/en/index.php
 
-https://httpd.apache.org/docs/
+apche: https://httpd.apache.org/docs/
 
-https://www.snort.org/documents
+Snort: https://www.snort.org/documents
