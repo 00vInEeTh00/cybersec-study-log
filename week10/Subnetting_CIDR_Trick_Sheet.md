@@ -126,3 +126,4 @@ Repeat by adding +16 (the block size) to get the next subnet.
 
 
 ---
+**2^4 = 16**  two to the power of 4 =16
