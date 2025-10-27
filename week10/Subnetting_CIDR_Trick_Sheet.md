@@ -122,5 +122,6 @@ Repeat by adding +16 (the block size) to get the next subnet.
 **Tip to Remember:**  
 > **Subnet count** = how many boxes (networks) you made.  
 > **Host count** = how many devices fit inside each box.
+> 2^4 = 16  two to the power of 4 =16
 
 ---
