@@ -11,4 +11,6 @@
 
 
 Insident Rport Template : https://docs.google.com/document/d/e/2PACX-1vTkpIEicOwy8tRNAxKa4f4cMpc7wrUHRM5Nr_A_bObpzDQg5pAvj7jniHa_uVWQCuHLr21hQO64BsVi/pub
+
+Suricata Guide : https://docs.suricata.io/en/suricata-8.0.1/quickstart.html#basic-setup
   
