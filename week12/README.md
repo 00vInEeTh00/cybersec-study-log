@@ -1,5 +1,5 @@
 
-# Cryptography & TLS Topics
+# Week 12 Topics
 
 1. Cryptogray - Encryption, Hashing, Encoding  
 2. Asymmetric, Symmetric Encryption  
