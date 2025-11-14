@@ -8,3 +8,5 @@
 5. TLS Handshake, QUIC Handshake  
 6. SSL / TLS Related Vulnerabilities  
 7. Use Nmap to Find SSL/TLS Vulnerabilities
+
+SSL Check: https://www.howsmyssl.com/
