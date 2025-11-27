@@ -1,87 +1,84 @@
-#Linux Auth Log Analyzer (Suspicious & Privilege Escalation Detection)
+# 🔐 Linux Auth Log Analyzer  
+### Suspicious Activity & Privilege Escalation Detector
 
-This project reads the Linux /var/log/auth.log file, extracts important security-related events, and identifies:
+This project analyzes the Linux **/var/log/auth.log** file and automatically detects:
 
-Suspicious authentication attempts
+- Suspicious authentication attempts  
+- Privilege-escalation related activity  
+- Frequency of repeated commands  
+- Generates CSV output  
+- Creates simple visual graphs for security analysis  
 
-Privilege-escalation related activity
+It helps you understand authentication and privilege behavior on your system in a clean and automated way.
 
-Frequency of repeated commands
+---
 
-Generates CSV output
+## 🛠️ How It Works (Simple Explanation)
 
-Produces simple visual graphs for analysis
+The script performs the following steps:
 
-It helps understand security patterns on your system in a simple automated way.
+### ✅ 1. Reads `/var/log/auth.log`  
+It extracts the following fields from each line:
+- **date**
+- **host**
+- **process** (sudo, sshd, polkitd, login, cron…)
+- **process ID**
+- **full log message**
 
-How It Works (Simple Explanation)
+---
 
-The script reads all lines from /var/log/auth.log.
+### ✅ 2. Detects Suspicious Activities  
+Looks for keywords such as:
 
-It extracts:
+- `failed password`
+- `authentication failure`
+- `invalid user`
+- `refused`
+- `error`
+- `not valid`
 
-date
+If found → marked as **suspicious = True**
 
-host
+---
 
-process (ex: sudo, sshd, polkitd)
+### ✅ 3. Detects Privilege Escalation Attempts  
+Checks for actions from:
 
-process ID
+- sudo  
+- su  
+- pkexec  
+- polkitd  
+- login  
+- sshd  
+- CRON  
+- systemd-userdbd  
+- passwd  
 
-full log message
+If detected → marked as **privilege_escalation = True**
 
-It checks whether the line contains suspicious keywords like:
-failed password, authentication failure, invalid user, refused, error
+---
 
-It checks for privileged actions using processes like:
-sudo, su, pkexec, polkitd, login, sshd, CRON
+### ✅ 4. Counts Frequency of Repeated Commands  
+If the same (user, message) pattern happens multiple times  
+→ it increments a **frequency counter**  
+Helpful in detecting **brute-force** or repeated sudo attempts.
 
-It counts how many times the same privileged action repeated.
+---
 
-It writes everything into parsed.csv.
+### ✅ 5. Generates Output Files
 
-Suspicious-only logs are stored in suspicious_logs.csv.
+The script automatically creates:
 
-Two graphs are generated:
+| File | Description |
+|------|-------------|
+| **parsed.csv** | All logs with flags + frequency |
+| **suspicious_logs.csv** | Only suspicious logs |
+| **Graph 1** | Privilege Escalation Events by Process |
+| **Graph 2** | Suspicious Activity Count by Process |
 
-Privilege Escalation by Process
+---
 
-Suspicious Activity Count by Process
+## 📥 Input File Location
 
-Input File Location
+The script analyzes the system log:
 
-The script analyzes this log:
-
-/var/log/auth.log
-
-Make sure you run the script with root or sudo if needed:
-
-sudo python3 log_parser.py
-
-Output Files
-
-The project automatically generates:
-
-parsed.csv
-suspicious_logs.csv
-two matplotlib graphs
-
-Requirements
-
-Install Python modules:
-
-pip install pandas matplotlib
-
-What This Project Helps You Identify
-
-Wrong password attempts
-
-Failed sudo access
-
-Invalid user login attempts
-
-Polkit or pkexec privilege attempts
-
-Repeated actions (possible brute-force patterns)
-
-Processes frequently interacting with authentication system
