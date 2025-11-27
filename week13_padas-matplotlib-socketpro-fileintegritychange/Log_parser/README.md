@@ -1,4 +1,4 @@
-# 🔐 Linux Auth Log Analyzer  
+# 🔐 Linux Auth Log Analyzer Using panda and Matplotlib
 ### Suspicious Activity & Privilege Escalation Detector
 
 This project analyzes the Linux **/var/log/auth.log** file and automatically detects:
