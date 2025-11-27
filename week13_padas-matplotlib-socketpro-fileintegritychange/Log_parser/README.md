@@ -1,4 +1,4 @@
-Linux Auth Log Analyzer (Suspicious & Privilege Escalation Detection)
+#Linux Auth Log Analyzer (Suspicious & Privilege Escalation Detection)
 
 This project reads the Linux /var/log/auth.log file, extracts important security-related events, and identifies:
 
