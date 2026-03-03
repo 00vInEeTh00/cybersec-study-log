@@ -1,0 +1,651 @@
+                           Common Security Attacks
+Research Report
+Author: Vineeth M
+Date: 02/03/2026
+
+Executive Summary
+This report provides a comprehensive overview of 10 of the most common security attacks targeting organizations today. For each attack, we detail how it occurs and outline the Security Operations Center (SOC) team's response procedures across all six stages of incident response.
+
+The incident response lifecycle covered in this report includes:
+    1. Preparation - Establishing systems, policies, and training before incidents occur
+    2. Identification - Detecting and validating security incidents
+    3. Containment - Limiting the scope and impact of active incidents
+    4. Eradication - Removing attacker presence and fixing vulnerabilities
+    5. Recovery - Restoring normal operations and validating security
+    6. Lessons Learned - Post-incident analysis and continuous improvement
+Each attack in this report includes specific actions the SOC team should take at each stage to effectively detect, respond to, and recover from the incident.
+Table of Contents
+    7. Phishing
+    8. Brute Force Attack
+    9. Malware/Ransomware
+    10. SQL Injection
+    11. Denial of Service (DDoS) Attack
+    12. Man-in-the-Middle (MITM) Attack
+    13. Privilege Escalation
+    14. Data Exfiltration
+    15. Zero-Day Exploit
+    16. Social Engineering/Insider Threat
+
+1. Phishing
+       Overview
+Phishing is a social engineering attack where attackers send deceptive emails, messages, or create fake websites that impersonate legitimate organizations to trick users into revealing sensitive information such as credentials, payment details, or personal data.
+       How It Occurs
+Attackers craft convincing emails that appear to come from trusted sources (banks, email providers, colleagues). These emails contain malicious links or attachments. Users are tricked into clicking links that lead to fake login pages, downloading malware, or revealing credentials. The success rate increases when attackers use techniques like urgency, fear, or authority.
+
+       SOC Incident Response Program
+Preparation
+    • Deploy email security solutions and SIEM systems
+    • Train employees on phishing recognition
+    • Implement multi-factor authentication (MFA)
+    • Establish email filtering rules
+    • Create an incident response contact system for reporting suspicious emails
+    • Document baseline email traffic patterns
+Identification
+    • User reports suspicious email or security tool detects anomalous email pattern
+    • Analyze email headers, sender information, and links
+    • Check if recipients clicked links or opened attachments
+    • Review email content for urgency, threats, or requests for credentials
+    • Check URL destination against known threat databases
+    • Identify all affected users and systems
+Containment
+    • Quarantine suspicious emails across organization
+    • Block sender domains and IP addresses
+    • Reset passwords for users who may have entered credentials
+    • Disable compromised user accounts temporarily
+    • Block malicious URLs and file hashes organization-wide
+    • Prevent email forwarding from compromised accounts
+Eradication
+    • Remove phishing emails from user mailboxes
+    • Delete malware from affected systems using antivirus tools
+    • Reset all affected user credentials
+    • Revoke any unauthorized access tokens or sessions
+    • Remove backdoors or persistence mechanisms installed by malware
+    • Clear browser caches and remove browser extensions
+Recovery
+    • Restore user access with new credentials
+    • Scan systems for residual malware before returning to users
+    • Monitor affected accounts for suspicious activity for 30 days
+    • Restore email functionality for users
+    • Verify system integrity and patch vulnerabilities
+    • Update threat intelligence feeds to prevent similar attacks
+Lessons Learned
+    • Document how the phishing email bypassed filters
+    • Review email security tool effectiveness
+    • Update employee training based on email tactics used
+    • Update email filtering rules and security policies
+    • Implement additional technical controls (DMARC, SPF, DKIM)
+    • Conduct post-incident review meeting with security team and management
+    • Update incident playbook with new attack indicators
+
+
+
+2. Brute Force Attack
+       Overview
+A brute force attack is an attempt to gain unauthorized access to an account or system by systematically trying many username and password combinations until one succeeds. Attackers use automated tools to rapidly test credentials without regard to detection.
+       How It Occurs
+Attackers use tools like Hydra, John the Ripper, or custom scripts to automatically submit login attempts. They may use common password dictionaries, leaked credential lists, or sequential number guessing. Attacks target publicly accessible services like SSH, RDP, VPN, or web application login pages. Once valid credentials are found, attackers gain system access and can move laterally.
+
+       SOC Incident Response Program
+Preparation
+    • Implement account lockout policies (lock after 5-10 failed attempts)
+    • Deploy intrusion detection systems (IDS) monitoring for brute force patterns
+    • Set up rate limiting on login endpoints
+    • Implement MFA on all critical accounts
+    • Use strong password policies (minimum 12 characters)
+    • Monitor login attempts through SIEM
+    • Document baseline login patterns
+Identification
+    • SIEM or IDS alerts on multiple failed login attempts from single source
+    • Identify source IP addresses of attack
+    • Check authentication logs for patterns of login attempts
+    • Determine target accounts being attacked
+    • Identify time frame of attack
+    • Check if any successful logins occurred
+    • Verify accounts were locked during attack
+Containment
+    • Implement emergency rate limiting at network perimeter
+    • Block attacker IP addresses at firewall level
+    • Reset passwords for targeted accounts
+    • Enable or enhance MFA requirements
+    • Temporarily restrict remote access services if appropriate
+    • Implement account lockout if not already active
+    • Monitor all access from potentially compromised accounts
+Eradication
+    • Verify no successful breaches occurred during attack window
+    • Change passwords for all targeted accounts
+    • Review and remove any backdoors or persistence mechanisms
+    • Check for lateral movement or data exfiltration
+    • Clear failed login records and reset lockouts
+    • Update firewall/WAF rules to block attack patterns
+Recovery
+    • Restore normal login functionality and account access
+    • Monitor targeted accounts for suspicious activity for 30 days
+    • Restore system access for legitimate users
+    • Verify all systems are functioning normally
+    • Validate authentication logs are recording properly
+    • Restore normal firewall rules and rate limiting
+Lessons Learned
+    • Review why accounts were targeted (known usernames?)
+    • Analyze network for other weak authentication mechanisms
+    • Document attack source and method of discovery
+    • Update brute force detection thresholds if needed
+    • Review and strengthen password policies
+    • Implement passwordless authentication where possible
+    • Conduct security awareness training on strong passwords
+    • Review logs for similar attacks in the past
+
+3. Malware/Ransomware
+       Overview
+Malware is malicious software designed to harm, disable, or gain unauthorized access to computer systems. Ransomware is a specific type that encrypts critical data and demands payment for decryption keys. Other types include trojans, worms, and spyware.
+       How It Occurs
+Users download malware through email attachments, infected websites, torrents, or fake software. Attackers may use drive-by downloads, supply chain compromises, or social engineering. Once executed, malware establishes persistence, spreads through networks, and can steal data or encrypt files. Ransomware variants use strong encryption and often exfiltrate data to pressure payment.
+       SOC Incident Response Program
+Preparation
+    • Deploy endpoint detection and response (EDR) tools
+    • Maintain updated antivirus signatures across all systems
+    • Implement application whitelisting
+    • Create regular backups of critical data (offline storage)
+    • Segment networks to contain spread
+    • Disable unnecessary services and ports
+    • Monitor process execution and file system changes
+    • Conduct malware response drills
+    • Establish ransomware payment policy (typically no payment)
+Identification
+    • EDR tool or user reports suspicious file execution
+    • Identify affected systems and malware family
+    • Analyze file hashes against threat intelligence
+    • Check for suspicious network connections
+    • Monitor for encryption activities or file modifications
+    • Scan logs for entry vector (email, RDP, etc.)
+    • Determine scope of infection (number of systems)
+    • Check for data exfiltration indicators
+Containment
+    • Immediately isolate infected systems from network
+    • Disable network access but keep systems powered on for analysis
+    • Block malicious IPs and domains at firewall
+    • Disable affected user accounts
+    • Stop backup processes to prevent encrypting backups
+    • Identify and isolate all systems showing indicators of compromise
+    • Preserve evidence for forensic analysis
+    • Alert users about potential compromises
+Eradication
+    • Conduct full forensic analysis to understand infection
+    • Remove malware from all systems using clean recovery media
+    • Wipe and reinstall operating systems on affected computers
+    • Close exploited vulnerabilities (patch systems)
+    • Remove persistence mechanisms (scheduled tasks, registry keys)
+    • Scan network for remaining malware instances
+    • Verify malware removal with multiple antivirus tools
+    • Validate no command-and-control communications remain
+Recovery
+    • Restore systems from verified clean backups
+    • Monitor restored systems for malware indicators
+    • Restore user data from offline backups
+    • Verify system functionality and data integrity
+    • Gradually reconnect systems to network while monitoring
+    • Rebuild systems if confidence in clean state is insufficient
+    • Restore user access and notify of incident
+    • Monitor for 60+ days for re-infection
+Lessons Learned
+    • Analyze infection vector and why controls failed
+    • Review backup strategy and recovery time objectives
+    • Document malware indicators and detection gaps
+    • Update antivirus signatures and detection rules
+    • Review email filtering effectiveness
+    • Conduct security awareness training
+    • Evaluate EDR tool effectiveness
+    • Implement missing compensating controls
+    • Update ransomware payment policy if needed
+    • Consider cyber insurance review
+
+
+
+
+4. SQL Injection
+       Overview
+SQL Injection is a code injection vulnerability where attackers insert malicious SQL commands into input fields, allowing them to manipulate database queries. This can lead to unauthorized data access, modification, deletion, or complete database compromise.
+       How It Occurs
+Attackers identify web applications or APIs with vulnerable input fields that directly concatenate user input into SQL queries. By entering specially crafted SQL statements (e.g., ' OR '1'='1' --, DROP TABLE users;--), they can change query logic. They may extract entire databases, modify records, delete data, or create administrative accounts for persistence.
+       SOC Incident Response Program
+Preparation
+    • Code review and secure coding training for developers
+    • Use parameterized queries and prepared statements
+    • Implement Web Application Firewall (WAF) rules
+    • Monitor database query logs and performance
+    • Implement database access controls and least privilege
+    • Conduct SQL injection vulnerability scanning
+    • Keep database software patched and updated
+    • Restrict database accounts to specific privileges
+    • Enable database activity monitoring
+Identification
+    • WAF or database monitoring tool detects SQL injection attempt
+    • Review application logs for suspicious queries or error messages
+    • Check database audit logs for unauthorized queries
+    • Analyze HTTP requests for SQL injection payloads
+    • Identify vulnerable application endpoint
+    • Determine if injection was successful
+    • Check database for unauthorized modifications or data access
+    • Review application error messages for information disclosure
+Containment
+    • Block attacker IP addresses at WAF and firewall
+    • Update WAF rules to block SQL injection patterns
+    • Restrict database access to prevent further damage
+    • Disable vulnerable application endpoint if critical
+    • Kill active database sessions from attacker source
+    • Enable additional database monitoring and alerting
+    • Reduce database account privileges
+    • Implement emergency query logging
+Eradication
+    • Fix vulnerable code by implementing parameterized queries
+    • Review and modify vulnerable endpoints
+    • Deploy patched application version
+    • Audit entire application for similar SQL injection vulnerabilities
+    • Verify no backdoors or persistence mechanisms in database
+    • Review database access logs for unauthorized changes
+    • Reset database user credentials
+    • Restore compromised data from backups
+Recovery
+    • Redeploy patched application to production
+    • Verify application functionality after code changes
+    • Restore database if unauthorized modifications occurred
+    • Monitor database queries for suspicious activity
+    • Re-enable normal WAF and monitoring rules
+    • Restore normal access to users
+    • Monitor application logs for exploitation attempts
+    • Monitor database for 30 days for suspicious activity
+Lessons Learned
+    • Conduct code review of entire codebase for similar issues
+    • Implement mandatory parameterized query standard
+    • Review developer security training effectiveness
+    • Document vulnerable code patterns discovered
+    • Implement automated SQL injection scanning in CI/CD pipeline
+    • Consider implementing input validation and output encoding
+    • Review WAF rule effectiveness
+    • Conduct security awareness training for developers
+    • Update vulnerability management procedures
+    • Review database access controls and least privilege implementation
+5. Denial of Service (DDoS) Attack
+       Overview
+A Denial of Service (DDoS) attack floods a system, application, or network with traffic or requests, consuming resources and making services unavailable to legitimate users. Distributed versions use multiple sources to amplify the attack.
+       How It Occurs
+Attackers use botnets, amplification techniques, or compromised systems to send massive amounts of traffic (HTTP requests, packets, DNS queries) to target systems. They may target network bandwidth, application servers, or specific services. Attack types include UDP floods, SYN floods, HTTP floods, and DNS amplification. The goal is to exhaust resources and cause denial of service.
+       SOC Incident Response Program
+Preparation
+    • Deploy DDoS mitigation services (Cloudflare, Akamai, etc.)
+    • Implement rate limiting on web servers
+    • Configure intrusion prevention systems (IPS)
+    • Establish ISP DDoS filtering relationships
+    • Document baseline network traffic patterns
+    • Create DDoS response runbook
+    • Implement redundancy and load balancing
+    • Monitor network traffic and bandwidth utilization
+    • Establish incident escalation procedures
+Identification
+    • Monitoring tools detect unusual traffic spikes
+    • Users report service unavailability or slowness
+    • Network team identifies traffic pattern anomalies
+    • Analyze traffic source IP addresses and patterns
+    • Determine if traffic is from legitimate sources
+    • Identify targeted service or IP address
+    • Check for specific DDoS attack signatures
+    • Verify internal systems are not causing issue
+Containment
+    • Activate DDoS mitigation service
+    • Implement emergency rate limiting
+    • Redirect traffic through DDoS filtering services
+    • Block obviously malicious traffic at ISP/network edge
+    • Reduce attack surface by limiting exposed services
+    • Increase available bandwidth if possible
+    • Implement geographic filtering if appropriate
+    • Monitor attack patterns and adjust mitigation
+Eradication
+    • Continue DDoS filtering and mitigation
+    • Analyze attack traffic for source botnets
+    • Report attack to law enforcement if appropriate
+    • Review for any compromised systems in organization
+    • Verify no persistent access was gained during attack
+    • Update security controls based on attack method
+    • Restore full traffic to normal once attack subsides
+Recovery
+    • Gradually reduce DDoS mitigation settings as attack stops
+    • Monitor traffic for renewed attack activity
+    • Verify all services are responding normally
+    • Clear any rate-limit blocks on legitimate traffic
+    • Restore normal network operations
+    • Continue monitoring for 24-48 hours after attack ends
+    • Restore user access and communications
+Lessons Learned
+    • Document attack duration, method, and impact
+    • Review DDoS mitigation effectiveness
+    • Identify any systems compromised during attack
+    • Update DDoS response procedures if needed
+    • Review and strengthen incident communication plans
+    • Consider DDoS insurance implications
+    • Conduct business continuity review
+    • Update network architecture to handle larger attacks
+    • Analyze attack origins for potential law enforcement
+    • Review customer communication procedures
+6. Man-in-the-Middle (MITM) Attack
+       Overview
+A Man-in-the-Middle attack occurs when an attacker secretly intercepts and potentially alters communications between two parties. The attacker positions themselves between the sender and receiver, capturing sensitive data like credentials, messages, or financial information.
+       How It Occurs
+Attackers use network sniffing tools, ARP spoofing, DNS spoofing, or SSL stripping to position themselves on the network path between users and servers. They may compromise network infrastructure, use rogue Wi-Fi access points, or exploit unencrypted protocols. They intercept traffic, capture sensitive data, inject malicious content, or impersonate servers to collect credentials.
+       SOC Incident Response Program
+Preparation
+    • Enforce HTTPS/TLS for all communications
+    • Implement certificate pinning in applications
+    • Deploy network monitoring and analysis tools
+    • Monitor for ARP spoofing and suspicious routing
+    • Implement VPN for remote access
+    • Use encrypted protocols (SSH, HTTPS, etc.)
+    • Validate certificates regularly
+    • Educate users about secure connection indicators
+    • Monitor DNS for anomalies
+    • Implement network segmentation
+Identification
+    • IDS detects suspicious ARP activity or packet patterns
+    • Users report certificate warnings or connection issues
+    • Network analysis reveals unauthorized gateway/router
+    • SSL/TLS inspection finds certificate anomalies
+    • Monitoring shows asymmetric traffic patterns
+    • DNS logs show unusual resolution patterns
+    • Users report receiving unexpected error messages
+    • Session capture analysis reveals suspicious traffic
+Containment
+    • Isolate affected network segments
+    • Block suspicious MAC addresses at switch level
+    • Kill network connections and restart them
+    • Disable rogue Wi-Fi access points
+    • Update ARP tables and clear ARP cache
+    • Block identified attacker IP addresses
+    • Redirect DNS to legitimate servers
+    • Monitor for continued MITM attempts
+Eradication
+    • Remove attacker's presence from network
+    • Reconfigure network infrastructure (routers, switches)
+    • Reset network device configurations from known-good backups
+    • Update router and switch firmware
+    • Review network access controls
+    • Remove any backdoors or unauthorized accounts
+    • Validate certificate legitimacy
+    • Clear DNS cache and validate resolver configuration
+Recovery
+    • Restore normal network routing and gateway function
+    • Verify encrypted communications are functioning
+    • Reset user sessions to clear any cached credentials
+    • Restore full network connectivity
+    • Monitor network traffic for suspicious activity
+    • Verify certificate chains are valid
+    • Restore DNS resolution accuracy
+    • Monitor for 30 days for similar attacks
+Lessons Learned
+    • Review why MITM was possible (outdated protocols?)
+    • Implement SSL/TLS everywhere if not already done
+    • Review certificate management procedures
+    • Analyze network architecture for vulnerabilities
+    • Update security policies on encryption standards
+    • Conduct security awareness on secure connection indicators
+    • Review and strengthen network monitoring
+    • Consider implementing certificate transparency checking
+    • Update incident playbook with detected indicators
+    • Review network segmentation adequacy
+7. Privilege Escalation
+       Overview
+Privilege escalation is an attack where an attacker with limited access gains higher-level privileges, moving from user-level to administrator or root access. This allows complete system compromise and lateral movement.
+       How It Occurs
+Attackers exploit operating system vulnerabilities, misconfigurations, or weak access controls. They may use sudo misconfigurations, SUID binaries, DLL injection, or kernel exploits. Initial access might be obtained through phishing or brute force, then escalation allows system-wide compromise. Attackers install backdoors, access sensitive data, or move laterally to other systems.
+       SOC Incident Response Program
+Preparation
+    • Apply all security patches regularly
+    • Minimize use of sudo/administrative privileges
+    • Implement principle of least privilege
+    • Monitor privilege usage and sudo logs
+    • Disable unnecessary services and drivers
+    • Implement file integrity monitoring
+    • Use host-based IDS to detect privilege escalation
+    • Restrict direct root access
+    • Audit file and folder permissions
+    • Monitor for suspicious process execution
+Identification
+    • Host monitoring detects suspicious privilege escalation attempt
+    • System logs show unexpected privilege grants
+    • User reports inability to elevate privileges or suspicious behavior
+    • Process monitoring reveals unusual parent-child relationships
+    • File integrity monitoring detects system file modifications
+    • Sudo logs show unauthorized escalation attempts
+    • System behaves unexpectedly after user action
+Containment
+    • Disable compromised user account
+    • Kill processes running with elevated privileges
+    • Isolate affected system from network
+    • Reset compromised credentials
+    • Monitor for lateral movement attempts
+    • Block any backdoor access methods
+    • Monitor file access and system changes
+Eradication
+    • Identify privilege escalation vulnerability
+    • Apply security patches to vulnerable software
+    • Remove backdoors and persistence mechanisms
+    • Reset all system credentials
+    • Review system access logs for unauthorized activity
+    • Restore system to known-good state if necessary
+    • Verify no rootkits or kernel-level compromises
+    • Audit user accounts for unauthorized modifications
+Recovery
+    • Restore system to normal operation
+    • Re-enable access controls and permissions
+    • Validate system integrity and functionality
+    • Restore normal audit logging
+    • Monitor system for 30-60 days for suspicious activity
+    • Restore user productivity while maintaining security
+    • Verify patches are properly installed
+Lessons Learned
+    • Document vulnerability that was exploited
+    • Review patch management procedures
+    • Conduct least privilege audit across systems
+    • Analyze why escalation was possible
+    • Update security baseline configurations
+    • Review sudo usage logs for anomalies
+    • Implement additional monitoring for privilege escalation
+    • Update incident response procedures
+    • Conduct security awareness training
+    • Document indicators of privilege escalation
+    • Review vulnerability management effectiveness
+8. Data Exfiltration
+       Overview
+Data exfiltration is the unauthorized transfer of sensitive or confidential data outside of an organization's network. Attackers steal intellectual property, customer data, financial information, or personal data for profit or competitive advantage.
+       How It Occurs
+Attackers gain system access through various means, then search for and transfer sensitive data. They use compression tools, encryption, and legitimate protocols (HTTPS, FTP, DNS, ICMP) to avoid detection. Data may be stolen gradually to avoid notice, or in bulk after discovering valuable information. Insider threats may intentionally exfiltrate data.
+       SOC Incident Response Program
+Preparation
+    • Classify and tag sensitive data
+    • Implement data loss prevention (DLP) tools
+    • Monitor data access patterns and use cases
+    • Restrict access to sensitive data by role
+    • Encrypt sensitive data at rest and in transit
+    • Monitor network outbound connections
+    • Implement database activity monitoring
+    • Conduct regular data discovery and inventory
+    • Establish baseline data access patterns
+    • Implement egress filtering
+Identification
+    • DLP tool detects attempt to transfer sensitive data
+    • Network monitoring detects large outbound transfers
+    • User reports unusual data access in system
+    • Database monitoring alerts on data extractions
+    • CloudTrail or audit logs show suspicious bulk operations
+    • Endpoint monitoring detects file compression/encryption
+    • Email gateway detects sensitive data in outbound emails
+    • Cloud storage shows suspicious access or downloads
+Containment
+    • Block network connections to identified exfiltration destination
+    • Disable affected user account
+    • Revoke access tokens and temporary credentials
+    • Implement emergency DLP rules
+    • Reduce data access permissions
+    • Isolate affected systems
+    • Monitor for continued exfiltration attempts
+    • Preserve evidence for investigation
+Eradication
+    • Determine scope of data exfiltrated
+    • Identify all systems involved in exfiltration
+    • Remove any backdoors or persistence mechanisms
+    • Reset credentials for affected accounts
+    • Review system logs for data access and transfers
+    • Remove any attacker tools left behind
+    • Close exploited vulnerabilities
+    • Validate no additional exfiltration occurred
+Recovery
+    • Restore normal access controls
+    • Rebuild user access to data systems
+    • Monitor data access for 60+ days
+    • Verify data systems are functioning normally
+    • Restore user productivity
+    • Continue DLP monitoring
+    • Restore normal network monitoring
+Lessons Learned
+    • Determine if insider threat or external attacker
+    • Notify affected data subjects per privacy regulations
+    • Calculate data breach notification costs
+    • Review data classification and access controls
+    • Analyze why exfiltration was not detected earlier
+    • Review DLP tool effectiveness and tuning
+    • Strengthen network monitoring and egress filtering
+    • Conduct security awareness on data handling
+    • Update incident response procedures
+    • Review compliance obligations (GDPR, CCPA, etc.)
+    • Consider cyber insurance notification
+    • Implement additional compensating controls
+9. Zero-Day Exploit
+       Overview
+A zero-day exploit is an attack that takes advantage of a previously unknown vulnerability in software or hardware. The vulnerability has no patch available, making zero-day attacks particularly dangerous. Attackers have exclusive knowledge of the vulnerability before the vendor.
+       How It Occurs
+Attackers discover or acquire knowledge of an unknown vulnerability. They develop exploit code that reliably triggers the vulnerability. The exploit is then used in targeted or mass attacks, often delivered through social engineering, compromised websites, or supply chains. Once successful, attackers gain system access, install malware, or steal data.
+       SOC Incident Response Program
+Preparation
+    • Implement defense-in-depth strategies
+    • Deploy endpoint detection and response (EDR)
+    • Monitor for unusual system behavior
+    • Restrict administrative access and privileges
+    • Maintain updated security patches where available
+    • Implement network segmentation
+    • Deploy intrusion prevention systems
+    • Monitor for indicators of compromise
+    • Maintain threat intelligence subscriptions
+    • Conduct regular vulnerability assessments
+Identification
+    • EDR tool detects unusual process behavior or system calls
+    • Monitoring reveals unexpected system or application behavior
+    • User reports application crash or unusual behavior
+    • System exhibits signs of compromise without known vulnerability
+    • Threat intelligence indicates zero-day attacks
+    • Behavioral analysis detects exploitation patterns
+    • System resources consumed unexpectedly
+    • Network traffic shows unusual patterns
+Containment
+    • Isolate affected systems immediately
+    • Monitor for spreading or lateral movement
+    • Kill suspicious processes
+    • Disable network access if necessary
+    • Monitor for command-and-control communications
+    • Block any identified malicious IPs/domains
+    • Preserve evidence for analysis
+    • Monitor other systems for similar behavior
+Eradication
+    • Wipe and reinstall operating systems
+    • Restore from known-good backups
+    • Patch systems when vendor releases fix
+    • Remove any installed backdoors or malware
+    • Monitor restored systems closely
+    • Verify complete remediation of vulnerability
+    • Close exploit delivery path if identified
+Recovery
+    • Gradually restore systems once patched
+    • Monitor restored systems intensively
+    • Verify functionality and data integrity
+    • Continue monitoring for re-exploitation
+    • Restore user access after validation
+    • Monitor for 90+ days for recurrence
+Lessons Learned
+    • Document zero-day indicators discovered
+    • Share indicators with industry/ISAC
+    • Update threat intelligence
+    • Review detection gaps that allowed exploitation
+    • Implement monitoring for detected behavior
+    • Review backup/recovery procedures effectiveness
+    • Update incident response procedures with zero-day indicators
+    • Contact vendor for patch and timeline
+    • Evaluate vendor security practices
+    • Consider firmware/hardware replacement if kernel-level
+    • Review crisis communication procedures
+    • Update security architecture to limit zero-day impact
+10. Social Engineering/Insider Threat
+       Overview
+Social engineering manipulates human psychology to trick people into divulging confidential information or performing security-compromising actions. Insider threats involve employees or trusted partners who abuse their access for personal gain or malicious purposes.
+       How It Occurs
+Attackers use pretexting (creating false scenarios), baiting (offering attractive items), quid pro quo (promises of favors), or tailgating (following authorized personnel). They may pose as IT support, vendors, or new employees. Insiders intentionally leak data, create backdoors, sabotage systems, or abuse access. Social engineering lowers organizational defenses before technical attacks.
+       SOC Incident Response Program
+Preparation
+    • Implement comprehensive security awareness training
+    • Conduct regular phishing simulations
+    • Establish strong vendor/third-party management
+    • Implement background checks for employees
+    • Monitor for suspicious user behavior
+    • Establish confidentiality and code of conduct
+    • Create safe reporting channels for concerns
+    • Implement privileged access management (PAM)
+    • Monitor privilege usage and sensitive access
+    • Establish clear escalation procedures
+Identification
+    • Employee reports suspicious social engineering attempt
+    • Behavioral anomalies detected in user activity
+    • Unauthorized access to sensitive systems detected
+    • Large data transfers or suspicious file access
+    • User reports pressure from unknown person
+    • Suspicious third-party requests for information
+    • System logs show after-hours access
+    • Customers report security issues attributed to employee
+Containment
+    • Immediately disable compromised user account
+    • Reset all credentials
+    • Revoke physical access badges
+    • Monitor systems for continued unauthorized access
+    • Preserve evidence for investigation
+    • Notify legal/HR if insider threat
+    • Restrict access to sensitive systems
+    • Monitor for data exfiltration
+Eradication
+    • Conduct forensic investigation
+    • Determine extent of information compromised
+    • Close any created backdoors
+    • Remove access credentials and tokens
+    • Review systems accessed by compromised account
+    • Restore access controls
+    • Update security policies if needed
+    • Document findings for legal proceedings if applicable
+Recovery
+    • Restore normal operations once investigation complete
+    • Conduct thorough damage assessment
+    • Identify and protect compromised data subjects
+    • Rebuild user access with additional controls
+    • Monitor restored systems closely
+    • Restore trust and organizational confidence
+Lessons Learned
+    • Conduct mandatory security awareness training
+    • Update background check procedures
+    • Review and strengthen access controls
+    • Implement additional monitoring if needed
+    • Update code of conduct and policies
+    • Document attack method for future reference
+    • Improve social engineering detection abilities
+    • Strengthen vendor management procedures
+    • Review segregation of duties
+    • Implement insider threat program if not present
+    • Update incident response procedures
+    • Consider third-party risk assessments
+    • Document lessons for organizational security culture
+Conclusion
+These ten attacks represent some of the most prevalent threats facing organizations today. A well-prepared SOC with clear incident response procedures can significantly reduce the impact of these attacks. 
+
+
+
