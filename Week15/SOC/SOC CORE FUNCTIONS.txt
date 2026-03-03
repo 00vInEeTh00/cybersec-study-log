@@ -1,0 +1,50 @@
+Core Functions of a Security Operations Center (SOC),
+
+
+
+1. The Foundation: Visibility & Preparation
+
+Before a SOC can fight threats, it must know what it is protecting and how to stay ahead of attackers.
+
+    Asset Visibility (3.1): Maintaining a real-time inventory of networks, endpoints (IoT/Mobile), cloud services, and third-party integrations. You cannot protect what you cannot see.
+
+    Preventive Maintenance (3.2): Proactive hardening of systems. This includes patching software, updating firewall rules, and "whitelisting" approved applications to shrink the attack surface.
+
+    Continuous Monitoring (3.3): 24/7 surveillance using tools like SIEM (Security Information and Event Management) and EDR (Endpoint Detection and Response) to watch traffic, logs, and user behavior.
+
+2. Threat Detection Methods (3.4 & 3.13)
+
+Modern SOCs don't just look for "viruses"; they use a multi-layered approach to find attackers:
+Method	How it Works	Strength/Weakness
+Signature-Based	Matches known "fingerprints" of malware.	Fast, but misses new (Zero-day) threats.
+Behavioral Analytics	Flags deviations from "normal" activity.	Great for catching insider threats.
+Rule-Based (SIEM)	Connects dots (e.g., "Failed login" + "Admin access").	Finds complex attack patterns.
+Threat Intelligence	Matches internal data against global "bad lists."	Identifies known malicious IPs/domains.
+Threat Hunting	Human analysts manually "hunt" for hidden traces.	Finds what automation misses.
+3. The Incident Response (IR) Lifecycle (3.6 & 3.14)
+
+When a threat is confirmed, the SOC follows a 6-step structured process to neutralize it:
+
+    Preparation: Creating "Playbooks" and training the team.
+
+    Identification: Triaging alerts to confirm if an attack is actually happening.
+
+    Containment: Isolating infected computers to stop the "fire" from spreading.
+
+    Eradication: Deleting malware, closing backdoors, and removing hacker accounts.
+
+    Recovery: Restoring systems from backups and returning to business as usual.
+
+    Lessons Learned: Analyzing the "Root Cause" to ensure it never happens again.
+
+4. Analysis, Intelligence, and Compliance
+
+The SOC also manages the "data" and "legal" side of security.
+
+    Log Management & Forensics (3.8): Collecting logs from every device to reconstruct an attack chain (the "who, what, when, and how").
+
+    Threat Intelligence (3.9): Integrating Tactical (attacker methods) and Technical (IPs/Hashes) data to anticipate future moves.
+
+    Vulnerability Management (3.10): Helping the IT team prioritize which "holes" to fix first based on which ones are being actively exploited.
+
+    Compliance (3.12): Ensuring the company meets legal standards like GDPR, HIPAA, or PCI-DSS by providing audit logs and reports.
